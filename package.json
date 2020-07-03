@@ -16,5 +16,18 @@
   "bugs": {
     "url": "https://github.com/wdmzjwzz/vue-ssr-demo/issues"
   },
-  "homepage": "https://github.com/wdmzjwzz/vue-ssr-demo#readme"
+  "homepage": "https://github.com/wdmzjwzz/vue-ssr-demo#readme",
+  "dependencies": {
+    "koa": "^2.13.0",
+    "koa-router": "^9.1.0",
+    "koa-static": "^5.0.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.3.4",
+    "vue-server-renderer": "^2.6.11",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
 }
