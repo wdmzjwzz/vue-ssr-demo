@@ -1,18 +1,27 @@
 <template>
-  <div>{{ item.title }}</div>
+  <div>
+    <h1>Home</h1>
+    <hr />
+    <h1>{{count}}</h1>
+    <button @click="INCREMENT">加一+</button>
+    <button @click="DECREMENT">减一-</button>
+  </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
-  asyncData({ store, route }) {
-    // 触发 action 后，会返回 Promise
-    return store.dispatch("fetchItem", route.params.id);
-  },
   computed: {
     // 从 store 的 state 对象中的获取 item。
-    item() {
-      return this.$store.state.items[this.$route.params.id];
-    }
+    count() {
+      return this.$store.state.count;
+    },
+    ...mapGetters({
+      topics: "getTopics"
+    })
+  },
+  methods: {
+    ...mapActions(["INCREMENT", "DECREMENT"])
   }
 };
 </script>
