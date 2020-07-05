@@ -1,6 +1,6 @@
 const merge = require('webpack-merge')
 const nodeExternals = require('webpack-node-externals')
-const baseConfig = require('./webpack.base.js').default
+const baseConfig = require('./webpack.base.js')
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
 const path = require("path");
 module.exports = merge(baseConfig, {
@@ -14,7 +14,7 @@ module.exports = merge(baseConfig, {
 
     // 此处告知 server bundle 使用 Node 风格导出模块(Node-style exports)
     output: {
-        filename:"server/[name].bundle.js",
+        filename:"assets/[name].bundle.js",
         libraryTarget: 'commonjs2'
     },
 

@@ -1,12 +1,12 @@
-const webpack = require('webpack')
+
 const merge = require('webpack-merge')
-const baseConfig = require('./webpack.base.js').default
+const baseConfig = require('./webpack.base.js')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 const path = require("path");
 module.exports = merge(baseConfig, {
   entry: path.join(__dirname, "../src/entry-client.js"),
   output: {
-    filename: "client/[name].bundle.js"
+    filename: "assets/[name].bundle.js"
   },
   plugins: [
     // 此插件在输出目录中

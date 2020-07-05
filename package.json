@@ -6,10 +6,9 @@
   "scripts": {
     "build:client": "webpack --config build/webpack.client.js --mode development",
     "build:server": "webpack --config build/webpack.server.js --mode development",
-    "build": "npm run build:client && npm run build:server",
     "server:dev": "gulp",
     "server:pro": "cross-env NODE_ENV=production  gulp",
-    "dev": "nodemon ./dist/server.js"
+    "dev": "cross-env NODE_ENV=development nodemon ./dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -23,12 +22,17 @@
   },
   "homepage": "https://github.com/wdmzjwzz/vue-ssr-demo#readme",
   "dependencies": {
+    "awilix": "^4.2.6",
+    "awilix-koa": "^4.0.0",
     "axios": "^0.19.2",
     "jquery": "^3.5.1",
     "koa": "^2.13.0",
     "koa-favicon": "^2.1.0",
     "koa-router": "^9.1.0",
     "koa-static": "^5.0.0",
+    "koa-swig": "^2.2.1",
+    "log4js": "^6.3.0",
+    "module-alias": "^2.2.2",
     "vue": "^2.6.11",
     "vue-router": "^3.3.4",
     "vue-server-renderer": "^2.6.11",
@@ -39,6 +43,7 @@
   "devDependencies": {
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-decorators": "^7.10.4",
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@rollup/plugin-replace": "^2.3.3",
@@ -51,7 +56,9 @@
     "gulp-babel": "^8.0.0",
     "gulp-rollup": "^2.17.0",
     "gulp-watch": "^5.0.1",
+    "html-webpack-plugin": "^4.3.0",
     "less-loader": "^6.2.0",
+    "node-bash-title": "^0.0.2",
     "nodemon": "^2.0.4",
     "vue-loader": "^15.9.3",
     "vue-style-loader": "^4.1.2",

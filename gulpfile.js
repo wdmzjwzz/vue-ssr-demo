@@ -5,15 +5,17 @@ const entry = './src/server/**/*.js';
 const rollup = require('gulp-rollup');
 const cleanEntry = './src/server/config/index.js';
 const replace = require('@rollup/plugin-replace');
+const setTitle = require('node-bash-title');
 //开发环境
 function builddev() {
+  setTitle('🍻  Server开发环境');
   return watch(entry, { ignoreInitial: false }, function () {
     gulp
       .src(entry)
       .pipe(
         babel({
           babelrc: false,
-          plugins: ['@babel/plugin-transform-modules-commonjs'],
+          plugins: [["@babel/plugin-proposal-decorators", { "legacy": true }],'@babel/plugin-transform-modules-commonjs'],
         })
       )
       .pipe(gulp.dest('dist'));
@@ -28,7 +30,7 @@ function buildprod() {
       babel({
         babelrc: false,
         ignore: [cleanEntry],
-        plugins: ['@babel/plugin-transform-modules-commonjs'],
+        plugins: [["@babel/plugin-proposal-decorators", { "legacy": true }],'@babel/plugin-transform-modules-commonjs'],
       })
     )
     .pipe(gulp.dest('dist'));
